@@ -1,0 +1,212 @@
+<!--Modify by visc.cn for cbiw.com.cn 2007-03-19-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>刷新不变化树形菜单 - js树形菜单_树形菜单代码 </title>
+<style type="text/css">
+body,td,th {font-size: 14px;}
+.leftmenu1 {font-weight: bold; cursor: hand; padding-top: 4px; height: 29px; text-align: left;}
+.leftmenu2 {PADDING-LEFT:15px; height: 21px;text-align: left;}
+div{ margin-top:90px; width:100%; text-align:center; }
+</style>
+</head>
+<body>
+<div>
+<script language="JavaScript" type="text/javascript">
+function Show(id,i_id){
+        var on_img="http://www.cbiw.com.cn/member/pic/ass04.gif";//打开时图片
+        var off_img="http://www.cbiw.com.cn/member/pic/ass03.gif";//隐藏时图片
+        var obj=document.getElementById('c_'+id);
+        if(obj.style.display=="none"){
+                obj.style.display="";
+        i_id.src=on_img;
+        //将子菜单Id放入Cookies
+        var curShow = readCookie('curShow');
+        if(curShow!='')
+        {
+          var arr_curShow = curShow.split(',');
+          var found = false;
+          for(i=0;i<arr_curShow.length-1;i++)
+          {
+            if(arr_curShow[i].toString()==id) {found=true;}
+          }
+          if(!found){writeCookie('curShow',curShow+','+id,12)}
+        }
+        else {
+          writeCookie('curShow',id,12)
+        }
+        //将子菜单Id放入Cookies End
+        }else{
+                obj.style.display="none";
+        i_id.src=off_img;
+        //将子菜单Id从Cookies中移除
+        var curShow = readCookie('curShow');
+        if(curShow!='')
+        {
+          var arr_curShow = curShow.split(',');
+          for(i=0;i<arr_curShow.length;i++)
+          {
+            if(arr_curShow[i].toString()==id) {arr_curShow=arr_curShow.del(i--);}
+          }
+          curShow = arr_curShow.join(',');
+          //alert(curShow);
+          writeCookie('curShow',curShow,12)
+        }
+        //将子菜单Id从Cookies中移除 End
+        }
+
+}
+
+function readCookie(name)
+
+{
+
+  var cookieValue = "";
+
+  var search = name + "=";
+
+  if(document.cookie.length > 0)
+
+  { 
+
+    offset = document.cookie.indexOf(search);
+
+    if (offset != -1)
+
+    { 
+
+      offset += search.length;
+
+      end = document.cookie.indexOf(";", offset);
+
+      if (end == -1) end = document.cookie.length;
+
+      cookieValue = unescape(document.cookie.substring(offset, end))
+
+    }
+
+  }
+
+  return cookieValue;
+
+}
+
+function writeCookie(name, value, hours)
+
+{
+
+  var expire = "";
+
+  if(hours != null)
+
+  {
+
+    expire = new Date((new Date()).getTime() + hours * 3600000);
+
+    expire = "; expires=" + expire.toGMTString();
+
+  }
+
+  document.cookie = name + "=" + escape(value) + expire;
+
+}
+Array.prototype.del=function(n) {  //n表示第几项，从0开始算起。
+//prototype为对象原型，注意这里为对象增加自定义方法的方法。
+  if(n<0)  //如果n<0，则不进行任何操作。
+    return this;
+  else
+    return this.slice(0,n).concat(this.slice(n+1,this.length));
+}
+
+
+window.onload = function a()
+{
+  var curShow = readCookie('curShow');
+  var totalShow = 5;  //自己修改一共有多少个二级分类
+  if(curShow!=''&&curShow!=null)
+  {
+    for(i=1;i<=totalShow;i++)
+    {
+      document.getElementById('c_'+i).display="none";
+    }
+    var arr_curShow;
+    arr_curShow = curShow.split(',');
+    for(i=0;i<=arr_curShow.length-1;i++)
+    {
+      if(arr_curShow[i]!=''){document.getElementById('c_'+arr_curShow[i]).style.display="";}
+    }
+
+  }
+}
+</script>
+<table width="10%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+<tbody>
+  <tr>
+    <td class="leftmenu1"> <a style="cursor: pointer" onclick="Show(1,img1)"><img src="http://www.cbiw.com.cn/member/pic/ass03.gif" width="16" height="16" align="absmiddle" id="img1"/><span class="ft_white"> 个人资料</span></a></td></tr>
+</tbody>
+<tbody id="c_1" style="display: none">
+<tr>
+  <td class="leftmenu2"><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">基本信息</a></td></tr>
+<tr>
+  <td class="leftmenu2"><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">修改密码</a></td></tr>
+</tbody>
+
+<tbody>
+  <tr>
+    <td class="leftmenu1"> <a style="cursor: pointer" onclick="Show(2,img2)"><img src="http://www.cbiw.com.cn/member/pic/ass03.gif" width="16" height="16" align="absmiddle" id="img2"/><span class="ft_white"> 我的简历</span></a></td></tr>
+</tbody>
+<tbody id="c_2" style="display: none">
+<tr>
+  <td class="leftmenu2" ><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">求职简历</a></td></tr>
+<tr>
+  <td class="leftmenu2" ><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">求职意向</a></td></tr>
+<tr>
+  <td class="leftmenu2" ><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">上传照片</a></td></tr>
+<tr>
+  <td class="leftmenu2" ><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">简历预览</a></td></tr>
+</tbody>
+
+<tbody>
+  <tr>
+    <td class="leftmenu1"> <a style="cursor: pointer" onclick="Show(3,img3)"><img src="http://www.cbiw.com.cn/member/pic/ass03.gif" width="16" height="16" align="absmiddle" id="img3"/><span class="ft_white"> 职位搜索</span></a></td></tr>
+</tbody>
+<tbody id="c_3" style="display: none">
+<tr>
+  <td class="leftmenu2" ><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">快速搜索</a></td></tr>
+</tbody>
+
+<tbody>
+  <tr>
+    <td class="leftmenu1"> <a style="cursor: pointer" onclick="Show(4,img4)"><img src="http://www.cbiw.com.cn/member/pic/ass03.gif" width="16" height="16" align="absmiddle" id="img4"/><span class="ft_white"> 应聘管理</span></a></td></tr>
+</tbody>
+<tbody id="c_4" style="display: none">
+<tr>
+  <td class="leftmenu2" ><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">应聘记录</a></td></tr>
+<tr>
+  <td class="leftmenu2" ><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">企业邀请</a></td></tr>
+<tr>
+  <td class="leftmenu2" ><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">收藏职位</a></td></tr>
+</tbody>
+
+<tbody>
+  <tr>
+    <td class="leftmenu1"> <a style="cursor: pointer" onclick="Show(5,img5)"><img src="http://www.cbiw.com.cn/member/pic/ass03.gif" width="16" height="16" align="absmiddle" id="img5"/><span class="ft_white"> 我的知识</span></a></td></tr>
+</tbody>
+<tbody id="c_5" style="display: none">
+<tr>
+  <td class="leftmenu2" ><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">我要提问</a></td></tr>
+<tr>
+  <td class="leftmenu2" ><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">我要回答</a></td></tr>
+<tr>
+  <td class="leftmenu2" ><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">发问记录</a></td></tr>
+<tr>
+  <td class="leftmenu2" ><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="#">回答记录</a></td></tr>
+<tr>
+  <td class="leftmenu2" ><img src="http://www.cbiw.com.cn/member/pic/ass06.gif" width="9" height="9" /> <a href="http://www.visc.cn" target="_blank" title="未寺客(visc.cn) - 做个广告,嘿嘿">分数记录</a></td></tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!--Modify by visc.cn for cbiw.com.cn 2007-03-19-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>树形菜单代码 代码来自互联网 仅供学习参考</title>
+<style type="text/css">
+	body,td,th {font-size: 14px;}
+</style>
+</head>
+<body>
+<div>
+<script language="JavaScript" type="text/javascript">
+function Show(id,i_id){
+        //var on_img="http://www.cbiw.com.cn/member/pic/ass04.gif";//打开时图片
+        //var off_img="http://www.cbiw.com.cn/member/pic/ass03.gif";//隐藏时图片
+        var obj=document.getElementById('c_'+id);
+        if(obj.style.display=="none"){
+                obj.style.display="";
+        }else{
+				obj.style.display="none";
+		}
+
+}
+</script>
+<table width="20%" border="0" align="left" cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+    <td > <a style="cursor: pointer"><img src="tb3.jpg" width="18" height="19"/><img src="tb1.jpg" width="17" height="19" align="absmiddle" id="img1"/><font color="blue">公开目录</font></a></td></tr>
+</tbody>
+<tbody>
+  <tr>
+    <td > <a style="cursor: pointer" onclick="Show(1,img1)"><img src="tb1.jpg" width="17" height="19" align="absmiddle" id="img1"/><font color="blue"> 机构职能</font></a></td></tr>
+</tbody>
+<tbody id="c_1" style="display: none">
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">机构概况</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">机构领导</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">人员编制</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">认事任免</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">内设机构及直属单位</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">联系科委</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">公务员招录</a></td></tr>
+</tbody>
+
+<tbody>
+  <tr>
+    <td > <a style="cursor: pointer" onclick="Show(2,img2)"><img src="tb1.jpg" width="17" height="19" align="absmiddle" id="img2"/><font color="blue"> 政策法规</font></a></td></tr>
+</tbody>
+<tbody id="c_2" style="display: none">
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">政策法规</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">政策解读</a></td></tr>
+<tr>
+  <td> <a style="cursor: pointer" onclick="Show(21,img2)"><img src="tb2.jpg" width="15" height="12" /><img src="tb1.jpg" width="17" height="19" align="absmiddle" id="img2"/><font color="blue"> 123</font></a></td></tr>
+<tbody id="c_21" style="display: none">
+	<tr>
+	  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">政策法规</a></td></tr>
+	<tr>
+	  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">政策解读</a></td></tr>
+</tbody>
+</tbody>
+
+<tbody>
+  <tr>
+    <td > <a style="cursor: pointer" onclick="Show(3,img3)"><img src="tb1.jpg" width="17" height="19" align="absmiddle" id="img3"/><font color="blue"> 计划规划</font></a></td></tr>
+</tbody>
+<tbody id="c_3" style="display: none">
+</tbody>
+<tbody>
+  <tr>
+    <td > <a style="cursor: pointer" onclick="Show(4,img3)"><img src="tb1.jpg" width="17" height="19" align="absmiddle" id="img3"/><font color="blue"> 业务工作</font></a></td></tr>
+</tbody>
+<tbody id="c_4" style="display: none">
+<tr>
+  <td ><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">课题项目申报</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">办事项目</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">其它综合通知</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">综合表格下载</a></td></tr>
+</tbody>
+<tbody>
+  <tr>
+    <td > <a style="cursor: pointer" onclick="Show(5,img3)"><img src="tb1.jpg" width="17" height="19" align="absmiddle" id="img3"/><font color="blue"> 议案提案答复</font></a></td></tr>
+</tbody>
+<tbody id="c_5" style="display: none">
+<tr>
+  <td ><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">人大代表书面意见答复</a></td></tr>
+<tr>
+  <td ><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">政协委员提案答复</a></td></tr>
+</tbody>
+
+<tbody>
+  <tr>
+    <td > <a style="cursor: pointer" onclick="Show(6,img3)"><img src="tb1.jpg" width="17" height="19" align="absmiddle" id="img3"/><font color="blue"> 咨询服务</font></a></td></tr>
+</tbody>
+<tbody id="c_6" style="display: none">
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">课题申报咨询</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">常见政策回答</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">企业相关服务</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">科技成果咨询</a></td></tr>
+<tr>
+  <td><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">其它综合咨询</a></td></tr>
+<tr>
+  <td ><img src="tb2.jpg" width="15" height="12" /><img src="tb4.jpg" width="16" height="18" /> <a href="#">便民培训通知</a></td></tr>
+</tbody>
+<tbody>
+  <tr>
+    <td > <a style="cursor: pointer" onclick="Show(7,img3)"><img src="tb1.jpg" width="17" height="19" align="absmiddle" id="img3"/><font color="blue"> 政府采购</font></a></td></tr>
+</tbody>
+<tbody id="c_7" style="display: none">
+</tbody>
+<tbody>
+  <tr>
+    <td > <a style="cursor: pointer" onclick="Show(8,img3)"><img src="tb1.jpg" width="17" height="19" align="absmiddle" id="img3"/><font color="blue"> 政府预算</font></a></td></tr>
+</tbody>
+<tbody id="c_8" style="display: none">
+</tbody>
+</table>
+</div>
+</body>
+</html>
