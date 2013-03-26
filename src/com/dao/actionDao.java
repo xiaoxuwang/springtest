@@ -24,7 +24,7 @@ import util.sqlUtil.DBUtil;
 
 /**
  * Author:xiaoxu.wang
- * Date:2010-8-30
+ * Date:2010-8-30 杨高南路  浦三路 
  * Des:rr
  */
 public class actionDao {
@@ -115,7 +115,7 @@ public class actionDao {
 		Map map=new HashMap();
 		try{
 			dbUtil=new DBUtil();
-			String sql="select empid,ename,dname,sex,phone from emp limit "+start+","+limit;
+			String sql="select empid,ename,dname,sex,phone,createdate from emp limit "+start+","+limit;
 			rs=dbUtil.Query(sql);
 			while(rs.next()){
 			 Emp me=new Emp();
@@ -124,7 +124,8 @@ public class actionDao {
 			 me.setSex( rs.getString("sex"));
 			 me.setDname(rs.getString("dname"));
 			 me.setPhone(rs.getString("phone"));
-			  list.add(me);
+			 me.setCreateDate(rs.getString("createdate"));
+			 list.add(me);
 			}
 		map.put("total",count);
 		map.put("data", list);
@@ -135,7 +136,6 @@ public class actionDao {
 		}catch(Exception e){ 
 			e.printStackTrace();
 		}finally{dbUtil.close();}
-		
 		return result;
 	}
 	/**
@@ -201,7 +201,7 @@ public class actionDao {
 	}
 	public boolean addEmp(Emp emp){
 		int dname=Integer.parseInt(emp.getDname());
-		String sql="insert  into emp (ename,sex,dname,phone) values( '"+emp.getEname()+"','"+emp.getSex()+"','"+dname+"', '"+emp.getPhone()+"')";
+		String sql="insert  into emp (ename,sex,dname,phone,createdate) values( '"+emp.getEname()+"','"+emp.getSex()+"','"+dname+"', '"+emp.getPhone()+"','"+emp.getCreateDate()+"')";
 		try {
 			dbUtil=new DBUtil();
 			int aa=dbUtil.Update(sql);
@@ -393,7 +393,8 @@ public class actionDao {
 		//匹配字符是否为11位数字   是:true 否 :false
 		//
 		//dao.combo_list("dept");
-		dao.testadd();
+		//dao.testadd();
+		dao.empInfo(0, 10);
 		//dao.jsonTodata();
 		//for(int i=0;i<100;i++){
 			

@@ -63,7 +63,7 @@ public class ConnectionSource {
         	
             conn = datasource.getConnection();
         }
-        System.out.println("当前链接池使用个数："+datasource.getNumActive());
+        System.out.println("褰撳墠鏁版嵁搴撹繛鎺ヤ釜鏁帮細"+datasource.getNumActive());
         return conn;
     }
 	public static void main(String[] args) {
@@ -72,13 +72,13 @@ public class ConnectionSource {
 		ResultSet rset = null;
 		try {
 			System.out.println("Creating connection.");
-			conn = ConnectionSource.getConnection();// 得到数据库的连接
+			conn = ConnectionSource.getConnection(); 
 			System.out.println("Creating statement.");
-			stmt = conn.createStatement();// 创建数据库声明
+			stmt = conn.createStatement();
 			System.out.println("Executing statement.");
-			rset = stmt.executeQuery("select * from account");// 从命令行得到要执行的数据库查询语句。
+			rset = stmt.executeQuery("select * from account");
 			System.out.println("Results:");
-			int numcols = rset.getMetaData().getColumnCount();// 返回结果集的条数。
+			int numcols = rset.getMetaData().getColumnCount();
 			while (rset.next()) {
 				for (int i = 1; i <= numcols; i++) {
 					System.out.print("\t" + rset.getString(i));
@@ -97,7 +97,7 @@ public class ConnectionSource {
 			} catch (Exception e) {
 			}
 			try {
-				conn.close();// 关闭数据库连接。
+				conn.close();
 			} catch (Exception e) {
 			}
 		}

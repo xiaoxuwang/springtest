@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import util.DateUtil;
+
 import com.dao.actionDao;
 import com.formBean.Emp;
 import com.formBean.Menu;
@@ -81,12 +84,14 @@ public class LoginAction{
 		String sex=request.getParameter("sex");
 		String dname=request.getParameter("deptid");
 		String phone=request.getParameter("phone");
+		String createDate = DateUtil.getCurrentDateByFormat("yyyyMMddHHmmss");
 		System.out.println(ename+"\t"+sex+"\t"+dname+"\t"+phone);
 		Emp emp=new Emp();
 		emp.setEname( ename);
 		emp.setSex(sex);
 		emp.setPhone(phone);
 		emp.setDname(dname);
+		emp.setCreateDate(createDate);
 		response.setCharacterEncoding("utf-8");
 		if(actiondao.addEmp(emp)){
 			response.getWriter().print("{success:true,msg:'³É¹¦'}");

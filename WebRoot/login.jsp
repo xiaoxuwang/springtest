@@ -17,13 +17,11 @@ Ext.onReady(function(){
   	  		//Ext.Msg.alert('Message',"Loading……");
   			simple=new Ext.form.FormPanel({
   	  			//renderTo:'Loginform',
-  	  			//x:100,
-  	  			//y:100,
   	  			border:false,
   				//title:'登录窗口',
   				defaultType:'textfield',
-				labelAlign:'center',
-  				labelWidth:60,
+				labelAlign:'right',
+  				labelWidth:120,
   				buttonAlign:'center',
   				frame:true,
   				width:300,
@@ -53,10 +51,10 @@ Ext.onReady(function(){
 
   	  		var win=new Ext.Window({
 				title:'登录窗口',
-				x:400,
-  	  			y:200,
-				height:150,
-				width:300,
+				x:500,
+  	  			y:250,
+				height:200,
+				width:350,
 				layout:'fit',
 				closeAction:'hide',
 				closeable:false,

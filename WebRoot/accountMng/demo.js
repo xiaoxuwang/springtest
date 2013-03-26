@@ -8,7 +8,7 @@ Ext.onReady(function(){
 		
 		url:'../login.do?method=getEmp',
 		root:'data',
-		fields:['id','ename','dname','sex','phone']
+		fields:['id','ename','dname','sex','phone','createDate']
 		//autoLoad:true //自动加载数据
 		
 	});
@@ -32,17 +32,20 @@ Ext.onReady(function(){
 		{header:'姓名',dataIndex:'ename'},
 		{header:'性别',dataIndex:'sex',renderer:function(value){value=value=="F"?"男":"女";return value;}},
 		{header:'部门',dataIndex:'dname',renderer:function(value){var index=store3.find('value',value);value=store3.getAt(index).get('key');return value;}},
-		{header:'联系电话',dataIndex:'phone'}
+		{header:'联系电话',dataIndex:'phone'},
+		{header:'创建日期',dataIndex:'createDate'}
 	]);
 	
 	//stemp2
 	//create the Grid
 	var grid=new Ext.grid.GridPanel({
 		autoHeight:true,
-		width:500,
+		autoWidth:true,
+		//width:800,
 		renderTo:'grid',
 		store:store,
 		cm:cm,
+		viewConfig:{forceFit:true},
 		loadMask : {
    			msg : '正在加载数据，请稍侯……'
   		}, // 数据读入等待显示界面.
@@ -51,7 +54,7 @@ Ext.onReady(function(){
             pageSize: 10,
             displayInfo : true,
    			displayMsg : '当前显示 {0} - {1}条记录 /共 {2}条记录',
-   			emptyMsg : "无显示数据"
+   			emptyMsg : " "
             //plugins: [filters]
         })
 

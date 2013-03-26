@@ -10,6 +10,14 @@ public class Emp {
 	private String ename;
 	private String sex;
 	private String dname;
+	private String createDate;
+	
+	public String getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
 	public String getEname() {
 		return ename;
 	}
